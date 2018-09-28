@@ -33,10 +33,8 @@ If you followed the alias setup above, you should be able to just do:
 
 ```knife diff | slack -t knife diff -c increasing number of jellyfish instances...```
 
-And if you alias the alias like above you can just do:
-
-```knife diff | slack -c increasing number of jellyfish instances...```
-
-```knife diff | slack -c 'that was #hectic! increasing number of jellyfish instances...'```
-
 NOTE: You must currently escape the '#' character in either a comment with quotes or with a backslash as it gets interpreted as a comment by the shell.
+
+E.G.
+
+```knife diff | slack -t knife diff -c 'that was #hectic! instances'```
