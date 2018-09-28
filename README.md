@@ -37,4 +37,4 @@ NOTE: You must currently escape the '#' character in either a comment with quote
 
 E.G.
 
-```knife diff | slack -t knife diff -c 'that was #hectic! instances'```
+```knife diff | slack -t knife diff -c 'that was #hectic!'```
