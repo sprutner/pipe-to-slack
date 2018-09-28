@@ -25,7 +25,7 @@ def upload_snippet(slack_channel, snippet, comment, title):
 
 def parse_arguments(help=False):
     #argpase init
-    parser = argparse.ArgumentParser('pipe-to-slack')
+    parser = argparse.ArgumentParser('server-slack')
     parser.add_argument('--comment', '-c', required=True, nargs='+')
     parser.add_argument('--title', '-t', required=True, nargs='+')
     result, unknown = parser.parse_known_args()
@@ -41,8 +41,17 @@ if __name__ == "__main__":
     comment = ' '.join(args.comment)
     title = ' '.join(args.title)
 
-    slack_token = os.environ["SLACK_API_TOKEN"]
-    slack_channel = os.environ["SLACK_CHANNEL"]
+    try:
+        slack_token = os.environ["SLACK_API_TOKEN"]
+    except KeyError as e:
+        print('SLACK_API_TOKEN environment variable not set')
+        exit(1)
+    try:
+        slack_channel = os.environ["SLACK_CHANNEL"]
+    except KeyError as e:
+        print('SLACK_CHANNEL environment variable not set')
+        exit(1)
+
     sc = SlackClient(slack_token)
     snippet = parse_stdin(sys.stdin)
     upload_snippet(slack_channel, snippet, comment, title)

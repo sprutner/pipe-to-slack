@@ -22,8 +22,7 @@
   I set these up for ease of use, just drop them in your bash_profile and point them to wherever this script is located
 
   ```
-  alias slack='~/pipe-to-slack/server-slack.py'
-  alias skd='slack -t Knife Diff'
+  alias slack='~/pipe-to-slack/pipe-to-slack.py'
   ```
 
 ## Usage
@@ -38,6 +37,6 @@ And if you alias the alias like above you can just do:
 
 ```knife diff | slack -c increasing number of jellyfish instances...```
 
-## TODO / Issues
+```knife diff | slack -c 'that was #hectic! increasing number of jellyfish instances...'```
 
-- You must currently escape the '#' character as it gets interpreted as a comment.
+NOTE: You must currently escape the '#' character in either a comment with quotes or with a backslash as it gets interpreted as a comment by the shell.
